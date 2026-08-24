@@ -1,0 +1,22 @@
+.container {
+  width: 100%;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+  text-align: center;
+}
+
+.title {
+  font-family: var(--font-serif, Georgia, serif);
+  font-size: 2rem;
+  font-weight: 400;
+  color: #2c2523;
+  margin-bottom: 1.5rem;
+}
+
+.text {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #5a4e48;
+  margin-bottom: 1rem;
+}

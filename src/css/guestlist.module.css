@@ -1,0 +1,100 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.emptyState {
+  text-align: center;
+  color: #6b5e54;
+  font-size: 0.95rem;
+  padding: 2rem;
+  background-color: #ffffff;
+  border: 1px dashed #d9cebe;
+  border-radius: 8px;
+}
+
+.card {
+  background-color: #ffffff;
+  border: 1px solid #d9cebe;
+  border-radius: 8px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-family: var(--font-serif, Georgia, serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #2c2523;
+  margin: 0;
+}
+
+.badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #4a3e3d;
+  background-color: #faf7f2;
+  border: 1px solid #d9cebe;
+  padding: 0.25rem 0.6rem;
+  border-radius: 12px;
+}
+
+.linkGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #faf7f2;
+  border: 1px solid #e8e1d5;
+  border-radius: 6px;
+  padding: 0.4rem 0.6rem;
+}
+
+.urlText {
+  font-family: monospace;
+  font-size: 0.825rem;
+  color: #6b5e54;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+}
+
+.copyButton {
+  background-color: #4a3e3d;
+  color: #ffffff;
+  border: none;
+  padding: 0.4rem 0.85rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  white-space: nowrap;
+}
+
+.copyButton:hover {
+  background-color: #2c2523;
+}
+
+.copiedButton {
+  background-color: #2e7d32;
+  color: #ffffff;
+}

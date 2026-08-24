@@ -1,0 +1,31 @@
+.footer {
+  width: 100%;
+  padding: 3rem 1.5rem;
+  background-color: #2c2523;
+  color: #ffffff;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.hashtag {
+  font-family: var(--font-serif, Georgia, serif);
+  font-size: 1.5rem;
+  letter-spacing: 0.1em;
+  color: #d9cebe;
+  margin-bottom: 1rem;
+}
+
+.thanks {
+  font-size: 0.9rem;
+  color: #a09083;
+  margin-bottom: 1.5rem;
+}
+
+.copyright {
+  font-size: 0.75rem;
+  color: #73655c;
+  border-top: 1px solid #4a3e3d;
+  padding-top: 1rem;
+  max-width: 400px;
+  margin: 0 auto;
+}

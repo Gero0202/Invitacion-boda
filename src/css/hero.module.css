@@ -1,0 +1,51 @@
+.hero {
+  width: 100%;
+  min-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  background-color: #faf7f2;
+  border-bottom: 1px solid #eae3d9;
+}
+
+.subhead {
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: #8c7a6b;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-family: var(--font-serif, Georgia, serif);
+  font-size: 3rem;
+  font-weight: 400;
+  color: #2c2523;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.2;
+}
+
+.guestBadge {
+  background-color: #ffffff;
+  border: 1px solid #d9cebe;
+  border-radius: 20px;
+  padding: 0.75rem 1.5rem;
+  margin-top: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.guestName {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #4a3e3d;
+  margin: 0 0 0.25rem 0;
+}
+
+.passes {
+  font-size: 0.875rem;
+  color: #73655c;
+  margin: 0;
+}

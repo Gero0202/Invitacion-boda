@@ -1,0 +1,45 @@
+.container {
+  width: 100%;
+  padding: 3rem 1.5rem;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 1px solid #eae3d9;
+}
+
+.title {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #8c7a6b;
+  margin-bottom: 1.5rem;
+}
+
+.timer {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 60px;
+}
+
+.number {
+  font-family: var(--font-serif, Georgia, serif);
+  font-size: 2.25rem;
+  font-weight: 500;
+  color: #2c2523;
+}
+
+.label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #a09083;
+  margin-top: 0.25rem;
+}

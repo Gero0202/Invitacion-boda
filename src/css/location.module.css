@@ -1,0 +1,52 @@
+.container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+  text-align: center;
+}
+
+.title {
+  font-family: var(--font-serif, Georgia, serif);
+  font-size: 2rem;
+  font-weight: 400;
+  color: #2c2523;
+  margin-bottom: 0.5rem;
+}
+
+.address {
+  font-size: 1.1rem;
+  color: #5a4e48;
+  margin-bottom: 1.5rem;
+}
+
+.mapWrapper {
+  width: 100%;
+  height: 320px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #d9cebe;
+  margin-bottom: 1.5rem;
+}
+
+.mapIframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.85rem 1.75rem;
+  background-color: #4a3e3d;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 24px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.button:hover {
+  background-color: #2c2523;
+}
