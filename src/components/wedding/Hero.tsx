@@ -9,8 +9,7 @@ interface HeroProps {
 
 export default function Hero({
   coupleNames = "Sofía & Mateo",
-  guestName,
-  allowedGuests,
+  guestName
 }: HeroProps) {
   return (
     <section className={styles.hero}>
@@ -20,11 +19,9 @@ export default function Hero({
       {guestName ? (
         <div className={styles.guestBadge}>
           <p className={styles.guestName}>¡Hola, {guestName}!</p>
-          {allowedGuests && (
-            <p className={styles.passes}>
-              Pases asignados: <strong>{allowedGuests}</strong>
-            </p>
-          )}
+          <p className={styles.passes}>
+            Estamos felices de compartir este día tan especial con vos.
+          </p>
         </div>
       ) : (
         <p className={styles.passes}>

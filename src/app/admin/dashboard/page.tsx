@@ -1,11 +1,14 @@
-import React from 'react'
+export const dynamic = 'force-dynamic'
 import { redirect } from 'next/navigation'
 import { createClient } from '@/lib/supabase/server'
 import LogoutButton from './LogoutButton'
 import styles from '@/css/dashboardadmin.module.css'
 import Link from 'next/link'
 import GuestFormWrapper from './GuestFormWrapper'
-import GuestList from '@/components/admin/GuestList'
+//import GuestList from '@/components/admin/GuestList'
+import { getGuestsWithRsvps } from '@/lib/supabase/guests'
+import DashboardStats from '@/components/admin/DashboardStats'
+import GuestManager from '@/components/admin/GuestManager'
 
 
 
@@ -19,22 +22,15 @@ export default async function DashboardPage() {
 
   // Si no está autenticado, redirige inmediatamente en el servidor
   if (!claims) {
-    redirect('/login')
+    redirect('/admin/login')
   }
 
   // Extraemos el email directamente de los claims
   const userEmail = typeof claims.email === 'string' ? claims.email : 'Usuario'
 
-  const { data: guests, error } = await supabase
-    .from('guests')
-    .select('*')
-    .order('created_at', {
-      ascending: false,
-    })
+  const guests = await getGuestsWithRsvps()
 
-  if (error) {
-    throw new Error('No se pudieron cargar los invitados')
-  }
+
 
   return (
     <div className={styles.container}>
@@ -62,7 +58,9 @@ export default async function DashboardPage() {
 
           <section className={styles.section}>
             <h2 className={styles.sectionTitle}>Invitados</h2>
-            <GuestList guests={guests ?? []} />
+            <DashboardStats guests={guests}/>
+            {/* <GuestList guests={guests} /> */}
+            <GuestManager guests={guests}/>
           </section>
         </div>
       </main>

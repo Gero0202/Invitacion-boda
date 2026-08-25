@@ -1,17 +1,26 @@
 import { notFound } from 'next/navigation'
 
 import { createClient } from '@/lib/supabase/server'
+import Hero from '@/components/wedding/Hero'
+import Story from '@/components/wedding/Story'
+import EventDetails from '@/components/wedding/EventDetails'
+import Location from '@/components/wedding/Location'
+import Countdown from '@/components/wedding/Countdown'
+import DressCode from '@/components/wedding/DressCode'
+import GiftRegistry from '@/components/wedding/GiftRegistry'
+import FAQ from '@/components/wedding/Faq'
+import Footer from '@/components/wedding/Footer'
+import RsvpForm from '@/components/invitation/RsvpForm'
 
-interface InvitationPageProps {
+interface PageProps {
   params: Promise<{
     token: string
   }>
 }
 
-export default async function InvitationPage({
-  params,
-}: InvitationPageProps) {
-  const { token } = await params
+export default async function GuestTokenPage({ params }: PageProps) {
+  // 1. Obtener el token de la URL
+  const { token } = await params;
 
   const supabase = await createClient()
 
@@ -35,26 +44,16 @@ export default async function InvitationPage({
 
   return (
     <main>
-      <h1>
-        Invitación de boda
-      </h1>
-
-      <h2>
-        {guest.name}
-      </h2>
-
-      <p>
-        Tenemos el placer de invitarte a
-        compartir este día con nosotros.
-      </p>
-
-      <p>
-        Invitación para{' '}
-        {guest.allowed_guests}{' '}
-        {guest.allowed_guests === 1
-          ? 'persona'
-          : 'personas'}
-      </p>
+      <Hero guestName={guest.name} />
+      <Story />
+      <EventDetails />
+      <Location />
+      <Countdown />
+      <DressCode />
+      <RsvpForm token={token}/>
+      <GiftRegistry />
+      <FAQ />
+      <Footer />
     </main>
   )
 }

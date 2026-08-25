@@ -4,8 +4,7 @@ import { randomBytes } from 'crypto'
 import { createClient } from '@/lib/supabase/server'
 
 export async function createGuest(
-  name: string,
-  allowedGuests: number
+  name: string
 ) {
   const supabase = await createClient()
 
@@ -25,14 +24,13 @@ export async function createGuest(
     .insert({
       name,
       token,
-      allowed_guests: allowedGuests,
     })
     .select()
     .single()
 
   if (error) {
     console.error(error)
-    throw new Error('No se pudo crear el invitado')
+    throw new Error('No se pudo crear la invitacion')
   }
 
   return data

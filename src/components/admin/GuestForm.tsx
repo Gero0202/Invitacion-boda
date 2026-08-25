@@ -21,14 +21,14 @@ export default function GuestForm({ onCreated }: GuestFormProps) {
     setLoading(true)
 
     try {
-      await createGuest(name, allowedGuests)
+      await createGuest(name)
 
       setName('')
-      setAllowedGuests(1)
+      
 
       onCreated?.()
     } catch {
-      setError('No se pudo crear el invitado')
+      setError('No se pudo crear la invitacion')
     } finally {
       setLoading(false)
     }
@@ -38,7 +38,7 @@ export default function GuestForm({ onCreated }: GuestFormProps) {
     <form onSubmit={handleSubmit} className={styles.formContainer}>
       <div className={styles.fieldGroup}>
         <label htmlFor="name" className={styles.label}>
-          Nombre y apellido
+          Invitacion para
         </label>
 
         <input
@@ -46,27 +46,12 @@ export default function GuestForm({ onCreated }: GuestFormProps) {
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          placeholder="Ej: Juan Pérez"
+          placeholder="Ej: Juan y Carolina"
           className={styles.input}
           required
         />
       </div>
 
-      <div className={styles.fieldGroup}>
-        <label htmlFor="allowedGuests" className={styles.label}>
-          Cantidad de personas
-        </label>
-
-        <input
-          id="allowedGuests"
-          type="number"
-          min="1"
-          value={allowedGuests}
-          onChange={(e) => setAllowedGuests(Number(e.target.value))}
-          className={styles.input}
-          required
-        />
-      </div>
 
       {error && <p className={styles.errorMessage}>{error}</p>}
 
