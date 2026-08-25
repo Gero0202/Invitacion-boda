@@ -2,6 +2,9 @@
 
 import { useState, useEffect } from 'react'
 import styles from '@/css/guestlist.module.css'
+import EditGuestForm from './EditGuestForm'
+import DeleteGuestButton from './DeletGuestButton'
+import ViewInvitationButton from './ViewInvitationButton'
 
 interface RsvpData {
   attendance: boolean | string | number
@@ -57,6 +60,8 @@ export default function GuestList({ guests = [] }: GuestListProps) {
     )
   }
 
+  const [editingGuestId, setEditingGuestId] = useState<string | null>(null)
+
   return (
     <div className={styles.container}>
       {guests.map((guest) => {
@@ -93,6 +98,7 @@ export default function GuestList({ guests = [] }: GuestListProps) {
 
         return (
           <div key={guest.id} className={styles.card}>
+
             <div className={styles.header}>
               <h3 className={styles.name}>{guest.name}</h3>
 
@@ -112,14 +118,43 @@ export default function GuestList({ guests = [] }: GuestListProps) {
 
               <button
                 type="button"
-                className={`${styles.copyButton} ${
-                  isCopied ? styles.copyButtonCopied : ''
-                }`}
+                className={`${styles.copyButton} ${isCopied ? styles.copyButtonCopied : ''
+                  }`}
                 onClick={() => copyLink(guest.token)}
               >
                 {isCopied ? '¡Copiado!' : 'Copiar link'}
               </button>
             </div>
+            {editingGuestId === guest.id ? (
+              <EditGuestForm
+                guestId={guest.id}
+                initialName={guest.name}
+                onCancel={() =>
+                  setEditingGuestId(null)
+                }
+                onSuccess={() =>
+                  setEditingGuestId(null)
+                }
+              />
+            ) : (
+              <>
+                {/* contenido actual de la tarjeta */}
+
+                <button
+                  type="button"
+                  onClick={() =>
+                    setEditingGuestId(guest.id)
+                  }
+                >
+                  Editar
+                </button>
+              </>
+            )}
+
+            <DeleteGuestButton guestId={guest.id} guestName={guest.name}/>
+
+            <ViewInvitationButton token={guest.token}/>
+
           </div>
         )
       })}
