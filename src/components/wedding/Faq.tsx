@@ -35,23 +35,40 @@ export default function FAQ() {
 
   return (
     <section className={styles.container}>
-      <h2 className={styles.title}>Preguntas Frecuentes</h2>
-      <div className={styles.accordion}>
-        {defaultFaqs.map((faq, index) => (
-          <div key={index} className={styles.item}>
-            <button className={styles.question} onClick={() => toggle(index)}>
-              <span>{faq.question}</span>
-              <span className={styles.icon}>
-                {openIndex === index ? "−" : "+"}
-              </span>
-            </button>
-            {openIndex === index && (
-              <div className={styles.answer}>
-                <p>{faq.answer}</p>
+      <div className={styles.card}>
+        <div className={styles.header}>
+          <span className={styles.subtitle}>Información útil</span>
+          <h2 className={styles.title}>Preguntas Frecuentes</h2>
+        </div>
+
+        <div className={styles.accordion}>
+          {defaultFaqs.map((faq, index) => {
+            const isOpen = openIndex === index;
+
+            return (
+              <div
+                key={index}
+                className={`${styles.item} ${isOpen ? styles.itemOpen : ""}`}
+              >
+                <button
+                  type="button"
+                  className={styles.question}
+                  onClick={() => toggle(index)}
+                  aria-expanded={isOpen}
+                >
+                  <span className={styles.questionText}>{faq.question}</span>
+                  <span className={styles.icon}>{isOpen ? "−" : "+"}</span>
+                </button>
+
+                {isOpen && (
+                  <div className={styles.answer}>
+                    <p>{faq.answer}</p>
+                  </div>
+                )}
               </div>
-            )}
-          </div>
-        ))}
+            );
+          })}
+        </div>
       </div>
     </section>
   );

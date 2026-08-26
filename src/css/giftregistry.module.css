@@ -1,83 +1,152 @@
 .container {
   width: 100%;
-  padding: 4rem 1.5rem;
-  background-color: #faf7f2;
-  border-bottom: 1px solid #eae3d9;
-  text-align: center;
+  max-width: 480px;
+  margin: 0 auto;
+  /* padding: 1.5rem 1rem; */
+  display: flex;
+  justify-content: center;
 }
 
 .box {
-  max-width: 600px;
-  margin: 0 auto;
+  width: 100%;
+  background-color: var(--surface);
+  border: 1px solid var(--border-color);
+  /* border-radius: 16px; */
+  padding: 2.25rem 1.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  box-shadow: 
+    0 4px 12px rgba(26, 46, 38, 0.03),
+    0 14px 32px rgba(75, 105, 75, 0.09),
+    0 0 35px rgba(75, 105, 75, 0.06);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.subtitle {
+  font-family: var(--font-main);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--accent-primary);
 }
 
 .title {
-  font-family: var(--font-serif, Georgia, serif);
-  font-size: 2rem;
-  font-weight: 400;
-  color: #2c2523;
-  margin-bottom: 1rem;
+  font-family: var(--font-serif);
+  font-size: 2.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
 }
 
 .text {
-  font-size: 0.95rem;
-  color: #5a4e48;
-  line-height: 1.6;
-  margin-bottom: 2rem;
+  font-family: var(--font-main);
+  font-size: 0.925rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0;
+  max-width: 360px;
 }
 
 .card {
-  background-color: #ffffff;
-  border: 1px solid #d9cebe;
-  border-radius: 8px;
-  padding: 1.5rem;
+  width: 100%;
+  background-color: var(--accent-light);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.25rem 1rem;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  text-align: left;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+  gap: 0.85rem;
+  margin-top: 0.5rem;
 }
 
 .row {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  border-bottom: 1px dashed #eae3d9;
-  padding-bottom: 0.5rem;
-}
-
-.row:last-child {
-  border-bottom: none;
-  padding-bottom: 0;
+  gap: 0.15rem;
 }
 
 .label {
-  font-size: 0.85rem;
+  font-family: var(--font-main);
+  font-size: 0.75rem;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: #8c7a6b;
+  color: var(--accent-primary);
 }
 
 .value {
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #2c2523;
+  font-family: var(--font-main);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-primary);
   word-break: break-all;
 }
 
+.aliasValue {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
 .copyButton {
-  margin-top: 1rem;
-  align-self: center;
-  padding: 0.6rem 1.25rem;
-  background-color: #8c7a6b;
-  color: #ffffff;
-  border: none;
-  border-radius: 20px;
-  font-size: 0.85rem;
+  font-family: var(--font-main);
+  margin-top: 0.35rem;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background-color: var(--surface);
+  border: 1px solid var(--text-secondary);
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: all 0.25s ease;
 }
 
 .copyButton:hover {
-  background-color: #73655c;
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  background-color: var(--surface);
+}
+
+.copied {
+  background-color: var(--accent-primary);
+  color: #ffffff;
+  border-color: var(--accent-primary);
+}
+
+.copied:hover {
+  background-color: var(--accent-hover);
+  color: #ffffff;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding: 2rem 1.5rem;
+    max-width: 540px;
+  }
+
+  .box {
+    padding: 2.75rem 2rem;
+    border-radius: 16px;
+  }
+
+  .title {
+    font-size: 2.4rem;
+  }
+
+  .card {
+    padding: 1.5rem 1.25rem;
+  }
 }

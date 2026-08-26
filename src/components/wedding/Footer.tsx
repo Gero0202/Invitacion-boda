@@ -1,4 +1,5 @@
-"use client"
+"use client";
+
 import styles from "@/css/footer.module.css";
 
 interface FooterProps {
@@ -7,17 +8,23 @@ interface FooterProps {
 }
 
 export default function Footer({
-  coupleNames = "Sofía & Mateo",
-  hashtag = "#BodaSofiaYMateo",
+  coupleNames = "Adrian & Laura",
+  hashtag = "#BodaLauraYAdrian",
 }: FooterProps) {
   return (
     <footer className={styles.footer}>
-      <p className={styles.hashtag}>{hashtag}</p>
-      <p className={styles.thanks}>
-        ¡Gracias por acompañarnos en este día inolvidable!
-      </p>
-      <div className={styles.copyright}>
-        <p>{coupleNames} — 2026</p>
+      <div className={styles.container}>
+        <div className={styles.divider} />
+
+        <p className={styles.hashtag}>{hashtag}</p>
+
+        <p className={styles.thanks}>
+          ¡Gracias por acompañarnos en este día inolvidable!
+        </p>
+
+        <div className={styles.copyright}>
+          <p>{coupleNames} — 2026</p>
+        </div>
       </div>
     </footer>
   );

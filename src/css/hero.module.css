@@ -1,51 +1,113 @@
-.hero {
+.heroContainer {
   width: 100%;
-  min-height: 85vh;
+  height: 100vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  padding: 2rem 1.5rem;
-  background-color: #faf7f2;
-  border-bottom: 1px solid #eae3d9;
+  padding: 2.5rem 1rem 1.5rem 1rem;
 }
 
-.subhead {
-  font-size: 0.95rem;
+.heroCard {
+  width: 100%;
+  max-width: 480px;
+  background-color: var(--surface);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 3rem 1.5rem 2.5rem 1.5rem;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(26, 46, 38, 0.05);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  height: 67%;
+  margin-bottom: 5rem;
+  box-shadow: 
+    0 4px 12px rgba(26, 46, 38, 0),
+    0 16px 40px rgba(75, 105, 75, 0.212),
+    0 0 50px rgba(75, 105, 75, 0.11);
+}
+
+.subtitle {
+  font-family: var(--font-main);
+  font-size: 0.85rem;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.25em;
-  color: #8c7a6b;
-  margin-bottom: 1rem;
+  letter-spacing: 0.18em;
+  color: var(--accent-primary);
+  margin-bottom: 0.5rem;
 }
 
 .title {
-  font-family: var(--font-serif, Georgia, serif);
-  font-size: 3rem;
+  font-family: var(--font-script);
+  font-size: 3.25rem;
   font-weight: 400;
-  color: #2c2523;
-  margin: 0 0 1.5rem 0;
-  line-height: 1.2;
+  color: var(--text-primary);
+  margin: 0.25rem 0 0.5rem 0;
+  line-height: 1.15;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  width: 60%;
+  margin: 1.25rem 0;
+}
+
+.dividerLine {
+  flex: 1;
+  height: 1px;
+  background-color: var(--border-color);
+}
+
+.dividerDot {
+  font-size: 0.65rem;
+  color: var(--accent-primary);
+  opacity: 0.8;
 }
 
 .guestBadge {
-  background-color: #ffffff;
-  border: 1px solid #d9cebe;
-  border-radius: 20px;
-  padding: 0.75rem 1.5rem;
-  margin-top: 1rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  margin-top: 0.5rem;
+  width: 100%;
+  background-color: var(--accent-light);
+  border: 1px dashed var(--border-color);
+  border-radius: 12px;
+  padding: 1.25rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
 }
 
-.guestName {
+.guestGreeting {
+  font-family: var(--font-serif);
   font-size: 1.2rem;
   font-weight: 600;
-  color: #4a3e3d;
-  margin: 0 0 0.25rem 0;
+  color: var(--text-primary);
+  margin: 0;
 }
 
-.passes {
-  font-size: 0.875rem;
-  color: #73655c;
+.passesText {
+  font-family: var(--font-main);
+  font-size: 0.925rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
   margin: 0;
+  max-width: 360px;
+}
+
+@media (min-width: 640px) {
+  .heroContainer {
+    padding: 3.5rem 1.5rem 2rem 1.5rem;
+  }
+
+  .heroCard {
+    padding: 3.5rem 2.5rem 3rem 2.5rem;
+  }
+
+  .title {
+    font-size: 4rem;
+  }
 }

@@ -1,123 +1,193 @@
-.card {
+.container {
+  width: 100%;
   max-width: 480px;
   margin: 0 auto;
-  padding: 2.5rem 2rem;
-  background-color: #ffffff;
-  border: 1px solid #d9cebe;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  /* padding: 1.5rem 1rem 3rem 1rem; */
+  margin-top: 5em;
+  margin-bottom: 4em;
+  display: flex;
+  justify-content: center;
+}
+
+.card,
+.successCard {
+  width: 100%;
+  background-color: var(--surface);
+  border: 1px solid var(--border-color);
+  /* border-radius: 16px; */
+  padding: 2.25rem 1.5rem;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  box-shadow: 
+    0 4px 12px rgba(26, 46, 38, 0.03),
+    0 14px 32px rgba(75, 105, 75, 0.09),
+    0 0 35px rgba(75, 105, 75, 0.06);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.subtitle {
+  font-family: var(--font-main);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--accent-primary);
 }
 
 .title {
-  font-family: var(--font-serif, Georgia, serif);
-  font-size: 1.6rem;
-  font-weight: 500;
-  color: #2c2523;
-  margin-top: 0;
-  margin-bottom: 1.5rem;
+  font-family: var(--font-serif);
+  font-size: 2.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
 }
 
 .optionsContainer {
+  width: 100%;
   display: flex;
-  gap: 1rem;
-  justify-content: center;
-  margin-bottom: 1.5rem;
+  flex-direction: column;
+  gap: 0.85rem;
 }
 
 .optionButton {
-  flex: 1;
-  padding: 0.85rem 1rem;
+  font-family: var(--font-main);
+  width: 100%;
+  padding: 0.9rem 1rem;
   font-size: 0.95rem;
   font-weight: 500;
-  color: #4a3e3d;
-  background-color: #faf7f2;
-  border: 1px solid #d9cebe;
-  border-radius: 8px;
+  color: var(--text-secondary);
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.25s ease;
 }
 
 .optionButton:hover {
-  border-color: #8c7a6b;
-  background-color: #f3ede2;
+  border-color: var(--accent-primary);
+  color: var(--text-primary);
 }
 
+/* Opción Sí Seleccionada */
 .selectedYes {
-  background-color: #4a3e3d;
-  color: #ffffff;
-  border-color: #4a3e3d;
+  background-color: var(--accent-light);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(75, 105, 75, 0.15);
 }
 
-.selectedYes:hover {
-  background-color: #2c2523;
-  border-color: #2c2523;
-}
-
+/* Opción No Seleccionada */
 .selectedNo {
-  background-color: #8c7a6b;
-  color: #ffffff;
-  border-color: #8c7a6b;
-}
-
-.selectedNo:hover {
-  background-color: #6b5e54;
-  border-color: #6b5e54;
+  background-color: var(--status-declined-bg);
+  border-color: rgba(155, 44, 44, 0.3);
+  color: var(--status-declined-text);
+  font-weight: 600;
 }
 
 .errorMessage {
-  font-size: 0.875rem;
-  color: #d32f2f;
-  background-color: #fde8e8;
-  border: 1px solid #f8b4b4;
-  padding: 0.6rem 0.75rem;
-  border-radius: 6px;
-  margin-bottom: 1.25rem;
+  font-family: var(--font-main);
+  font-size: 0.85rem;
+  color: var(--status-declined-text);
+  background-color: var(--status-declined-bg);
+  border: 1px solid rgba(155, 44, 44, 0.2);
+  padding: 0.65rem 0.85rem;
+  border-radius: 8px;
+  width: 100%;
+  margin: 0;
 }
 
 .submitButton {
+  font-family: var(--font-main);
   width: 100%;
-  padding: 0.85rem;
+  padding: 0.9rem 1.25rem;
   font-size: 0.95rem;
   font-weight: 600;
   color: #ffffff;
-  background-color: #2c2523;
-  border: none;
-  border-radius: 20px;
+  background-color: var(--accent-primary);
+  border: 1px solid var(--accent-primary);
+  border-radius: 12px;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(45, 90, 67, 0.2);
 }
 
 .submitButton:hover:not(:disabled) {
-  background-color: #1a1615;
+  background-color: var(--accent-hover);
+  border-color: var(--accent-hover);
+  box-shadow: 0 6px 16px rgba(45, 90, 67, 0.3);
+  transform: translateY(-1px);
+}
+
+.submitButton:active:not(:disabled) {
+  transform: translateY(1px);
 }
 
 .submitButton:disabled {
-  background-color: #a09083;
+  opacity: 0.65;
   cursor: not-allowed;
+  box-shadow: none;
 }
 
-.successCard {
-  max-width: 480px;
-  margin: 0 auto;
-  padding: 2.5rem 2rem;
-  background-color: #ffffff;
-  border: 1px solid #d9cebe;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+/* Estado de Éxito */
+.successBadge {
+  font-family: var(--font-main);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--status-confirmed-text);
+  background-color: var(--status-confirmed-bg);
+  border: 1px solid rgba(45, 90, 67, 0.2);
+  padding: 0.4rem 1rem;
+  border-radius: 9999px;
 }
 
 .successTitle {
-  font-family: var(--font-serif, Georgia, serif);
-  font-size: 1.6rem;
-  color: #2c2523;
-  margin-top: 0;
-  margin-bottom: 0.75rem;
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
 }
 
 .successMessage {
+  font-family: var(--font-main);
   font-size: 0.95rem;
-  color: #6b5e54;
+  color: var(--text-secondary);
+  line-height: 1.5;
   margin: 0;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding: 2rem 1.5rem 4rem 1.5rem;
+    max-width: 540px;
+  }
+
+  .card,
+  .successCard {
+    padding: 2.75rem 2rem;
+     border-radius: 16px;
+  }
+
+  .title {
+    font-size: 2.4rem;
+  }
+
+  .optionsContainer {
+    flex-direction: row;
+  }
+
+  .optionButton {
+    flex: 1;
+  }
 }

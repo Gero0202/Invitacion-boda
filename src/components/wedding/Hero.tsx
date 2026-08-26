@@ -1,5 +1,7 @@
 "use client";
+
 import styles from "@/css/hero.module.css";
+
 
 interface HeroProps {
   coupleNames?: string;
@@ -8,26 +10,36 @@ interface HeroProps {
 }
 
 export default function Hero({
-  coupleNames = "Sofía & Mateo",
+  coupleNames = "Adrian & Laura",
   guestName
 }: HeroProps) {
   return (
-    <section className={styles.hero}>
-      <p className={styles.subhead}>¡Nos casamos!</p>
-      <h1 className={styles.title}>{coupleNames}</h1>
+    <section className={styles.heroContainer}>
+      
+      <div className={styles.heroCard}>
+        <span className={styles.subtitle}>¡Nos casamos!</span>
+        
+        <h1 className={styles.title}>{coupleNames}</h1>
 
-      {guestName ? (
-        <div className={styles.guestBadge}>
-          <p className={styles.guestName}>¡Hola, {guestName}!</p>
-          <p className={styles.passes}>
-            Estamos felices de compartir este día tan especial con vos.
-          </p>
+        <div className={styles.divider} aria-hidden="true">
+          <span className={styles.dividerLine}></span>
+          <span className={styles.dividerDot}>❖</span>
+          <span className={styles.dividerLine}></span>
         </div>
-      ) : (
-        <p className={styles.passes}>
-          Estamos felices de compartir este día tan especial con vos.
-        </p>
-      )}
+
+        {guestName ? (
+          <div className={styles.guestBadge}>
+            <p className={styles.guestGreeting}>¡Hola, {guestName}!</p>
+            <p className={styles.passesText}>
+              Estamos muy felices de compartir este día tan especial con vos.
+            </p>
+          </div>
+        ) : (
+          <p className={styles.passesText}>
+            Estamos muy felices de compartir este día tan especial con vos.
+          </p>
+        )}
+      </div>
     </section>
   );
 }

@@ -16,11 +16,11 @@ interface GiftRegistryProps {
 
 export default function GiftRegistry({
   bankAccount = {
-    alias: "boda.sofia.mateo",
+    alias: "boda.adrian.laura",
     cbu: "0000003100012345678901",
-    holder: "Sofía Gómez",
+    holder: "Laura Pilar Nani",
   },
-  customText = "El mejor regalo para nosotros es contar con tu presencia. Si deseas hacernos un presente, podés colaborar con nuestra luna de miel.",
+  customText = "Lo más importante para nosotros es celebrar juntos. Si deseás hacernos un regalo, podés colaborar con un aporte a través de nuestra cuenta.",
 }: GiftRegistryProps) {
   const [copied, setCopied] = useState(false);
 
@@ -35,25 +35,34 @@ export default function GiftRegistry({
   return (
     <section className={styles.container}>
       <div className={styles.box}>
-        <h2 className={styles.title}>Mesa de Regalos</h2>
+        <div className={styles.header}>
+          <span className={styles.subtitle}>Presentes</span>
+          <h2 className={styles.title}>Regalos & Luna de Miel</h2>
+        </div>
+
         <p className={styles.text}>{customText}</p>
 
         <div className={styles.card}>
           <div className={styles.row}>
-            <span className={styles.label}>Titular:</span>
+            <span className={styles.label}>Titular</span>
             <span className={styles.value}>{bankAccount.holder}</span>
           </div>
+          
           <div className={styles.row}>
-            <span className={styles.label}>Alias:</span>
-            <span className={styles.value}>{bankAccount.alias}</span>
+            <span className={styles.label}>Alias</span>
+            <span className={styles.aliasValue}>{bankAccount.alias}</span>
           </div>
+
           <div className={styles.row}>
-            <span className={styles.label}>CBU:</span>
+            <span className={styles.label}>CBU</span>
             <span className={styles.value}>{bankAccount.cbu}</span>
           </div>
 
-          <button onClick={handleCopyAlias} className={styles.copyButton}>
-            {copied ? "¡Alias copiado!" : "Copiar Alias"}
+          <button
+            onClick={handleCopyAlias}
+            className={`${styles.copyButton} ${copied ? styles.copied : ""}`}
+          >
+            {copied ? "✓ ¡Alias copiado!" : "Copiar Alias"}
           </button>
         </div>
       </div>

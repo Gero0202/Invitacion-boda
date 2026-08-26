@@ -1,14 +1,14 @@
 :root {
   /* Paleta Romántica & Botánica */
-  --bg-primary: #fdfbf7;      /* Marfil cálido */
+  --bg-primary: #F5F3EE.     /* Marfil cálido */
   --surface: #ffffff;         /* Blanco puro para cards e inputs */
   
-  --text-primary: #1a2e26;    /* Verde bosque muy oscuro (reemplaza al negro) */
-  --text-secondary: #5a6b62;  /* Verde oliva suave */
+  --text-primary: #28463a;    /* Verde bosque muy oscuro (reemplaza al negro) */
+  --text-secondary: #567e69;  /* Verde oliva suave */
   --border-color: #e2e7e3;    /* Verde suave para bordes */
 
   /* Acentos y Botones */
-  --accent-primary: #8a9a86;  /* Salvia / Sage */
+  --accent-primary: #88a87f;  /* Salvia / Sage */
   --accent-hover: #73836f;    /* Salvia oscuro */
   --accent-light: #f0f4f1;    /* Salvia ultra claro para backgrounds */
 
