@@ -5,10 +5,13 @@
   padding: 1.5rem 1rem;
   display: flex;
   justify-content: center;
+  margin-top: 13em;
+  margin-bottom: 10em;
 }
 
 .card {
   width: 100%;
+  
   background-color: var(--surface);
   border: 1px solid var(--border-color);
   border-radius: 16px;

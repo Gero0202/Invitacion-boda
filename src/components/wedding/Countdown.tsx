@@ -15,7 +15,7 @@ interface TimeLeft {
 }
 
 export default function Countdown({
-  targetDate = "2026-11-20T18:00:00",
+  targetDate = "2026-11-01T18:00:00",
 }: CountdownProps) {
   const [mounted, setMounted] = useState(false);
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({
