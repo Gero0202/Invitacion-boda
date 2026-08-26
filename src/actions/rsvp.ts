@@ -13,10 +13,31 @@ export async function saveRsvp({
 }: SaveRsvpData) {
   const supabase = await createClient()
 
+  // Validar token
+  if (typeof token !== 'string') {
+    throw new Error('Token de invitación inválido')
+  }
+
+  const cleanToken = token.trim()
+
+  if (!cleanToken) {
+    throw new Error('Token de invitación inválido')
+  }
+
+  // Los tokens generados tienen 32 caracteres hexadecimales
+  if (!/^[a-f0-9]{32}$/i.test(cleanToken)) {
+    throw new Error('Token de invitación inválido')
+  }
+
+  // Validar asistencia
+  if (typeof attendance !== 'boolean') {
+    throw new Error('Respuesta de asistencia inválida')
+  }
+
   const { data, error } = await supabase.rpc(
     'save_rsvp',
     {
-      guest_token: token,
+      guest_token: cleanToken,
       guest_attendance: attendance,
     }
   )
