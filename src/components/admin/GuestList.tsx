@@ -70,7 +70,6 @@ export default function GuestList({ guests = [] }: GuestListProps) {
         const rsvpRecord = getRsvpRecord(guest.rsvps)
         const hasRsvp = rsvpRecord !== null
 
-        // Coerción explicita para manejar booleans, 1/0 o strings "true"/"false"
         const isConfirmed =
           hasRsvp &&
           (rsvpRecord.attendance === true ||
@@ -89,7 +88,10 @@ export default function GuestList({ guests = [] }: GuestListProps) {
             ? styles.statusConfirmed
             : styles.statusDeclined
 
-        const rawDate = rsvpRecord?.confirmed_at || rsvpRecord?.created_at || rsvpRecord?.updated_at
+        const rawDate =
+          rsvpRecord?.confirmed_at ||
+          rsvpRecord?.created_at ||
+          rsvpRecord?.updated_at
         const formattedDate = rawDate
           ? new Date(rawDate).toLocaleDateString('es-AR')
           : null
@@ -98,7 +100,6 @@ export default function GuestList({ guests = [] }: GuestListProps) {
 
         return (
           <div key={guest.id} className={styles.card}>
-
             <div className={styles.header}>
               <h3 className={styles.name}>{guest.name}</h3>
 
@@ -125,36 +126,29 @@ export default function GuestList({ guests = [] }: GuestListProps) {
                 {isCopied ? '¡Copiado!' : 'Copiar link'}
               </button>
             </div>
+
             {editingGuestId === guest.id ? (
               <EditGuestForm
                 guestId={guest.id}
                 initialName={guest.name}
-                onCancel={() =>
-                  setEditingGuestId(null)
-                }
-                onSuccess={() =>
-                  setEditingGuestId(null)
-                }
+                onCancel={() => setEditingGuestId(null)}
+                onSuccess={() => setEditingGuestId(null)}
               />
             ) : (
-              <>
-                {/* contenido actual de la tarjeta */}
-
+              <div className={styles.actionsRow}>
                 <button
                   type="button"
-                  onClick={() =>
-                    setEditingGuestId(guest.id)
-                  }
+                  className={styles.editButton}
+                  onClick={() => setEditingGuestId(guest.id)}
                 >
                   Editar
                 </button>
-              </>
+
+                <DeleteGuestButton guestId={guest.id} guestName={guest.name} />
+
+                <ViewInvitationButton token={guest.token} />
+              </div>
             )}
-
-            <DeleteGuestButton guestId={guest.id} guestName={guest.name}/>
-
-            <ViewInvitationButton token={guest.token}/>
-
           </div>
         )
       })}

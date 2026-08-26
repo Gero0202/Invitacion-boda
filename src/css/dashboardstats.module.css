@@ -1,0 +1,63 @@
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.85rem;
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 1rem 1.15rem;
+  background-color: var(--surface);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(26, 46, 38, 0.04);
+}
+
+.label {
+  font-family: var(--font-main);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.value {
+  font-family: var(--font-main);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.1;
+}
+
+/* Indicadores de color por estado */
+.cardConfirmed {
+  border-left: 4px solid var(--status-confirmed-text);
+}
+
+.cardDeclined {
+  border-left: 4px solid var(--status-declined-text);
+}
+
+.cardPending {
+  border-left: 4px solid var(--status-pending-text);
+}
+
+@media (min-width: 640px) {
+  .statsGrid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+
+  .card {
+    padding: 1.15rem 1.25rem;
+  }
+
+  .value {
+    font-size: 1.75rem;
+  }
+}

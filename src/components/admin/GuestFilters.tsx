@@ -6,6 +6,8 @@ import {
   useState,
 } from 'react'
 
+import styles from "@/css/guestfilter.module.css"
+
 interface Guest {
   id: string
   name: string
@@ -69,9 +71,10 @@ export default function GuestFilters({
   }, [filteredGuests, onFilter])
 
   return (
-    <section>
-      <div>
-        <label htmlFor="guest-search">
+  <section className={styles.filterSection}>
+    <div className={styles.controlsRow}>
+      <div className={styles.fieldGroup}>
+        <label htmlFor="guest-search" className={styles.label}>
           Buscar invitación
         </label>
 
@@ -80,46 +83,34 @@ export default function GuestFilters({
           type="text"
           placeholder="Buscar por nombre..."
           value={search}
-          onChange={(e) =>
-            setSearch(e.target.value)
-          }
+          onChange={(e) => setSearch(e.target.value)}
+          className={styles.input}
         />
       </div>
 
-      <div>
-        <label htmlFor="guest-status">
+      <div className={styles.fieldGroup}>
+        <label htmlFor="guest-status" className={styles.label}>
           Estado
         </label>
 
         <select
           id="guest-status"
           value={status}
-          onChange={(e) =>
-            setStatus(e.target.value)
-          }
+          onChange={(e) => setStatus(e.target.value)}
+          className={styles.select}
         >
-          <option value="all">
-            Todos
-          </option>
-
-          <option value="pending">
-            Pendientes
-          </option>
-
-          <option value="confirmed">
-            Confirmados
-          </option>
-
-          <option value="declined">
-            No asisten
-          </option>
+          <option value="all">Todos</option>
+          <option value="pending">Pendientes</option>
+          <option value="confirmed">Confirmados</option>
+          <option value="declined">No asisten</option>
         </select>
       </div>
+    </div>
 
-      <p>
-        Mostrando {filteredGuests.length} de{' '}
-        {guests.length} invitaciones
-      </p>
-    </section>
-  )
+    <p className={styles.resultsCount}>
+      Mostrando <strong>{filteredGuests.length}</strong> de{' '}
+      <strong>{guests.length}</strong> invitaciones
+    </p>
+  </section>
+)
 }

@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { deleteGuest } from '@/actions/guests'
+import styles from '@/css/guestlist.module.css'
 
 interface DeleteGuestButtonProps {
   guestId: string
@@ -43,6 +44,7 @@ export default function DeleteGuestButton({
   return (
     <button
       type="button"
+      className={styles.deleteButton}
       onClick={handleDelete}
       disabled={loading}
     >
