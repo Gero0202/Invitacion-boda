@@ -7,32 +7,21 @@ interface RevealProps {
   children: ReactNode
   delay?: number
   duration?: number
-  y?: number
 }
 
 export default function Reveal({
   children,
   delay = 0,
-  duration = 0.7,
-  y = 30,
+  duration = 0.6,
 }: RevealProps) {
   return (
     <motion.div
-      initial={{
-        opacity: 0,
-        y,
-      }}
-      whileInView={{
-        opacity: 1,
-        y: 0,
-      }}
-      viewport={{
-        once: false,
-        amount: 0.2,
-      }}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: false, amount: 0.1 }}
       transition={{
-        duration: 0.5,
-        delay,
+        duration: 0.6,
+        delay: 0.2,
         ease: 'easeOut',
       }}
     >
