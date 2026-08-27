@@ -34,14 +34,14 @@ export default function EventDetails({
 
         <div className={styles.timeline}>
           <div className={styles.timeBlock}>
-            <span className={styles.timeTag}>Ceremonia</span>
+            <span className={styles.timeTag}>Comienzo</span>
             <p className={styles.timeValue}>{ceremonyTime}</p>
           </div>
 
           <div className={styles.timelineDot}>❖</div>
 
           <div className={styles.timeBlock}>
-            <span className={styles.timeTag}>Fiesta</span>
+            <span className={styles.timeTag}>Fin</span>
             <p className={styles.timeValue}>{partyTime}</p>
           </div>
         </div>
