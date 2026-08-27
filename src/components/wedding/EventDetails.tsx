@@ -34,7 +34,7 @@ export default function EventDetails({
 
         <div className={styles.timeline}>
           <div className={styles.timeBlock}>
-            <span className={styles.timeTag}>Comienzo</span>
+            <span className={styles.timeTag}>Ceremonia</span>
             <p className={styles.timeValue}>{ceremonyTime}</p>
           </div>
 
