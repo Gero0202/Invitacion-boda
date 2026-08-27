@@ -11,7 +11,7 @@ import FAQ from '@/components/wedding/Faq'
 import Footer from '@/components/wedding/Footer'
 import RsvpForm from '@/components/invitation/RsvpForm'
 import Reveal from '@/components/ui/Reveal'
-
+import { Metadata } from 'next';
 import styles from "@/css/giftregistry.module.css"
 
 interface PageProps {
@@ -19,6 +19,49 @@ interface PageProps {
     token: string
   }>
 }
+
+// 1. Función para generar los metadatos dinámicos por invitación
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { token } = await params;
+
+  // Podés obtener los datos del invitado con el token desde tu backend o DB
+  // const guest = await getGuestByToken(token);
+  // const guestName = guest?.name || "invitado";
+
+  const title = "¡Estás invitado a nuestra boda! 💍";
+  const description = "Acompáñanos a celebrar este día tan especial. Haz clic para ver los detalles de tu invitación.";
+  
+  // URL absoluta de la imagen representativa (debe empezar con https://)
+  const imageUrl = "https://invitacion-boda-nine-delta.vercel.app/images/fondo-principal.png"; 
+
+  return {
+    title: title,
+    description: description,
+    openGraph: {
+      title: title,
+      description: description,
+      url: `https://tu-dominio.com/i/${token}`,
+      siteName: "Boda Laura & Adrián",
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+          alt: "Invitación de Boda",
+        },
+      ],
+      locale: "es_AR",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: title,
+      description: description,
+      images: [imageUrl],
+    },
+  };
+}
+
 
 export default async function GuestTokenPage({ params }: PageProps) {
   // 1. Obtener el token de la URL

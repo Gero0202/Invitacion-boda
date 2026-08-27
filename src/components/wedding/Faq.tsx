@@ -19,11 +19,6 @@ const defaultFaqs: FAQItem[] = [
     answer:
       "Sí, el predio cuenta con estacionamiento privado con personal de seguridad durante todo el evento.",
   },
-  {
-    question: "¿Puedo asistir con niños?",
-    answer:
-      "La invitación indica la cantidad de pases asignados para tu grupo familiar en el encabezado de la web.",
-  },
 ];
 
 export default function FAQ() {
