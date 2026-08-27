@@ -1,0 +1,273 @@
+/* Pantalla completa e iluminación ambiental */
+.viewport {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 50% 40%, #eae2d5 0%, #c8bcab 100%);
+  perspective: 1400px;
+  pointer-events: auto;
+}
+
+.ambientLight {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 25%, rgba(255, 255, 255, 0.45) 0%, transparent 75%);
+  pointer-events: none;
+}
+
+/* Envoltorio del sobre en pantalla */
+.envelopeWrapper {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  max-width: 100%;
+  max-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  transition: transform 0.9s cubic-bezier(0.7, 0, 0.84, 0) 0.6s, opacity 0.7s ease 0.8s;
+}
+
+.opened .envelopeWrapper {
+  transform: translateY(100vh) rotateX(-12deg);
+  opacity: 0;
+}
+
+/* Fondo interior del sobre */
+.insidePocket {
+  position: absolute;
+  inset: 0;
+  background-color: #1b3328; /* Verde botánico profundo */
+  background-image: #376b54;
+  background-size: 18px 18px;
+  box-shadow: inset 0 0 80px rgba(53, 71, 36, 0.5);
+  z-index: 1;
+}
+
+/* Tarjeta con el Nombre dentro del sobre */
+.letterCard {
+  position: absolute;
+  top: 16vh;
+  width: 86%;
+  max-width: 480px;
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 2.5rem 1.5rem;
+  box-shadow: 
+    0 12px 35px rgba(0, 0, 0, 0.2),
+    0 2px 6px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+  text-align: center;
+  border: 1px solid #e0d5c5;
+  transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s;
+}
+
+.opened .letterCard {
+  transform: translateY(-8vh);
+}
+
+.letterContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.letterTag {
+  font-family: var(--font-main);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--accent-primary, #1b3328);
+}
+
+.guestName {
+  font-family: var(--font-serif);
+  font-size: 2.1rem;
+  font-weight: 600;
+  color: #2a2826;
+  margin: 0;
+  line-height: 1.25;
+}
+
+/* 
+  =========================================
+  SOLAPAS CON LÍNEAS Y BORDES BIEN MARCADOS
+  =========================================
+*/
+
+/* Solapa Izquierda */
+.leftFlap {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 53%;
+  background: linear-gradient(100deg, #e7dfd1 0%, #bb9e55 100%);
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+  z-index: 3;
+  /* Línea de sombra definida en la junta del pliegue */
+  filter: drop-shadow(3px 0 6px rgba(60, 50, 38, 0.28));
+}
+
+/* Solapa Derecha */
+.rightFlap {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 53%;
+  background: linear-gradient(-100deg, #e7dfd1 0%, #bb9e55 100%);
+  clip-path: polygon(100% 0, 0 50%, 100% 100%);
+  z-index: 3;
+  /* Línea de sombra definida en la junta del pliegue */
+  filter: drop-shadow(-3px 0 6px rgba(60, 50, 38, 0.28));
+}
+
+/* Solapa Inferior (Cierra la parte baja del sobre) */
+.bottomFlap {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 56%;
+  background: linear-gradient(0deg, #dbcdb6 0%, #ebdcc9 100%);
+  clip-path: polygon(0 100%, 50% 0, 100% 100%);
+  z-index: 4;
+  /* Borde de sombra y relieve acentuado */
+  filter: drop-shadow(0 -5px 12px rgba(50, 40, 28, 0.35));
+}
+
+/* Solapa Superior (Cierra el sobre desde arriba) */
+.topFlap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 55%;
+  background: linear-gradient(180deg, #f7f0e3 0%, #dfcea8 100%);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transform-origin: top center;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 5;
+  /* Sombra proyectada fuerte sobre las demás solapas */
+  filter: drop-shadow(0 8px 18px rgba(40, 30, 20, 0.4));
+}
+
+.topFlapShadow {
+  position: absolute;
+  inset: 0;
+  /* Borde inferior acentuado en la punta triangular */
+  background: linear-gradient(180deg, transparent 70%, rgba(80, 60, 40, 0.15) 100%);
+}
+
+.opened .topFlap {
+  transform: rotateX(180deg);
+  z-index: 1;
+}
+
+/* 
+  =========================================
+  SELLO DE LACRE CON ALTO CONTRASTE
+  =========================================
+*/
+.sealButton {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 6;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease 0.3s;
+}
+
+.sealButton:hover {
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
+.sealButton:active {
+  transform: translate(-50%, -50%) scale(0.95);
+}
+
+.opened .sealButton {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.realWaxSeal {
+  width: 94px;
+  height: 94px;
+  border-radius: 47% 53% 49% 51% / 52% 48% 52% 48%;
+  background: radial-gradient(circle at 32% 28%, #ba2d28 0%, #7d1815 65%, #4a0b0a 100%);
+  box-shadow:
+    0 12px 26px rgba(40, 5, 5, 0.6),
+    0 3px 6px rgba(0, 0, 0, 0.35),
+    inset 0 3px 5px rgba(255, 255, 255, 0.45),
+    inset 0 -4px 8px rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  position: relative;
+}
+
+.waxInnerRim {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 1px dashed rgba(250, 230, 200, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 
+    inset 0 2px 6px rgba(0, 0, 0, 0.55),
+    0 1px 2px rgba(255, 255, 255, 0.25);
+}
+
+.monogram {
+  font-family: var(--font-script);
+  font-size: 1.5rem;
+  /* font-weight: 700; */
+  color: #fcecd2;
+  letter-spacing: 0.05em;
+  text-shadow: 
+    1px 2px 3px rgba(0, 0, 0, 0.9),
+    0 -1px 1px rgba(255, 255, 255, 0.3);
+    margin-right: 3px;
+}
+
+.sealTooltip {
+  font-family: var(--font-main);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #3b3226;
+  background: #ffffff;
+  padding: 0.45rem 1rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+  border: 1px solid #e2d6c5;
+  animation: pulse 2.2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.8; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(3px); }
+}

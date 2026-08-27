@@ -13,6 +13,7 @@ import RsvpForm from '@/components/invitation/RsvpForm'
 import Reveal from '@/components/ui/Reveal'
 import { Metadata } from 'next';
 import styles from "@/css/giftregistry.module.css"
+import ClientInvitationWrapper from '@/components/wedding/ClientInvitationWrapper'
 
 interface PageProps {
   params: Promise<{
@@ -24,6 +25,7 @@ interface PageProps {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { token } = await params;
 
+
   // Podés obtener los datos del invitado con el token desde tu backend o DB
   // const guest = await getGuestByToken(token);
   // const guestName = guest?.name || "invitado";
@@ -32,7 +34,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const description = "Acompáñanos a celebrar este día tan especial. Haz clic para ver los detalles de tu invitación.";
   
   // URL absoluta de la imagen representativa (debe empezar con https://)
-  const imageUrl = "https://invitacion-boda-nine-delta.vercel.app/images/fondo-principal.png"; 
+  const imageUrl = "https://invitacion-boda-nine-delta.vercel.app/images/metadatos-prueba.jpg"; 
 
   return {
     title: title,
@@ -89,6 +91,8 @@ export default async function GuestTokenPage({ params }: PageProps) {
 
   return (
     <main>
+      <ClientInvitationWrapper guestName={guest.name} coupleInitials="A & L">
+
       <Reveal>
         <Hero guestName={guest.name} />
       </Reveal>
@@ -135,6 +139,7 @@ export default async function GuestTokenPage({ params }: PageProps) {
       <Reveal>
         <Footer />
       </Reveal>
+      </ClientInvitationWrapper>
     </main>
   )
 }

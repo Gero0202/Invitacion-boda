@@ -11,8 +11,8 @@ interface EventDetailsProps {
 }
 
 export default function EventDetails({
-  ceremonyTime = "10:00 Hs",
-  partyTime = "12:30 Hs",
+  ceremonyTime = "11:00 Hs",
+  partyTime = "21:00 Hs",
   venueName = "Jano's Hipodromo de La Plata",
   venueAddress = "Av. 44, Calle 115",
 }: EventDetailsProps) {
