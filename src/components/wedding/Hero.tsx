@@ -10,7 +10,7 @@ interface HeroProps {
 }
 
 export default function Hero({
-  coupleNames = "Adrian & Laura",
+  coupleNames = "Laura & Adrian",
   guestName
 }: HeroProps) {
   return (

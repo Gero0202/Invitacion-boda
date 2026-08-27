@@ -1,8 +1,16 @@
+.background{
+  height: 80vh;
+        background-image: url('/images/fondo-gift.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; /* Ajusta la imagen para cubrir todo el espacio */
+}
+
 .container {
   width: 100%;
   max-width: 480px;
   margin: 0 auto;
-  padding: 1.5rem 1rem;
+  padding: 8.5rem 1rem;
   display: flex;
   justify-content: center;
   margin-bottom: 9em;
@@ -126,6 +134,7 @@
   .container {
     padding: 2rem 1.5rem;
     max-width: 540px;
+   
   }
 
   .card {

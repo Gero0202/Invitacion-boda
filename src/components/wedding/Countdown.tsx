@@ -49,6 +49,7 @@ export default function Countdown({
   const padWithZero = (num: number) => String(num).padStart(2, "0");
 
   return (
+    <div className={styles.background}>
     <section className={styles.container}>
       <div className={styles.card}>
         <div className={styles.header}>
@@ -93,5 +94,6 @@ export default function Countdown({
         </div>
       </div>
     </section>
+    </div>
   );
 }

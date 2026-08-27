@@ -42,6 +42,8 @@ export default async function Home() {
       
             <Countdown />
             <RsvpForm token=""/>
+
+           
             <GiftRegistry />
             <FAQ />
             <Footer />

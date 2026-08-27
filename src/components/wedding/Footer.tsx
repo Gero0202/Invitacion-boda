@@ -8,7 +8,7 @@ interface FooterProps {
 }
 
 export default function Footer({
-  coupleNames = "Adrian & Laura",
+  coupleNames = "Laura & Adrian",
   hashtag = "#BodaLauraYAdrian",
 }: FooterProps) {
   return (

@@ -1,6 +1,7 @@
 "use client";
 
 import styles from "@/css/dresscode.module.css";
+import { div } from "framer-motion/client";
 
 interface DressCodeProps {
   code?: string;
@@ -8,10 +9,11 @@ interface DressCodeProps {
 }
 
 export default function DressCode({
-  code = "Elegante",
+  code = "Elegante Sport",
   note = "Vení a celebrar con tu mejor look elegante y preparate para disfrutar y bailar toda la noche.",
 }: DressCodeProps) {
   return (
+    <div className={styles.background}>
     <section className={styles.container}>
       <div className={styles.card}>
         <div className={styles.header}>
@@ -26,5 +28,6 @@ export default function DressCode({
         <p className={styles.note}>{note}</p>
       </div>
     </section>
+    </div>
   );
 }

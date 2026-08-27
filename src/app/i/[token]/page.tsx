@@ -12,6 +12,8 @@ import Footer from '@/components/wedding/Footer'
 import RsvpForm from '@/components/invitation/RsvpForm'
 import Reveal from '@/components/ui/Reveal'
 
+import styles from "@/css/giftregistry.module.css"
+
 interface PageProps {
   params: Promise<{
     token: string
@@ -78,7 +80,9 @@ export default async function GuestTokenPage({ params }: PageProps) {
       </Reveal>
 
       <Reveal>
-        <GiftRegistry />
+          <GiftRegistry />
+
+       
       </Reveal>
 
       <Reveal>

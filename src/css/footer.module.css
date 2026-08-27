@@ -59,6 +59,7 @@
 @media (min-width: 640px) {
   .footer {
     padding: 4rem 1.5rem 5rem 1.5rem;
+    margin-top: -3em;
   }
 
   .container {

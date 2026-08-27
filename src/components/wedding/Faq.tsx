@@ -34,6 +34,9 @@ export default function FAQ() {
   };
 
   return (
+    <div className={styles.background}>
+
+    
     <section className={styles.container}>
       <div className={styles.card}>
         <div className={styles.header}>
@@ -71,5 +74,6 @@ export default function FAQ() {
         </div>
       </div>
     </section>
+    </div>
   );
 }

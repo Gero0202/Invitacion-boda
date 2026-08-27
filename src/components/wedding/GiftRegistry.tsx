@@ -33,6 +33,7 @@ export default function GiftRegistry({
   };
 
   return (
+   
     <section className={styles.container}>
       <div className={styles.box}>
         <div className={styles.header}>
@@ -67,5 +68,6 @@ export default function GiftRegistry({
         </div>
       </div>
     </section>
+    
   );
 }

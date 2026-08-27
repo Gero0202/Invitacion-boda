@@ -1,12 +1,27 @@
+.background{
+  height: 74vh;
+      background-image: url('/images/fondo-contdown.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; /* Ajusta la imagen para cubrir todo el espacio */
+}
+
+
 .container {
   width: 100%;
   max-width: 480px;
   margin: 0 auto;
-  padding: 1.5rem 1rem;
+  padding: 8.5rem 1rem;
   display: flex;
   justify-content: center;
   margin-top: 10em;
   margin-bottom: 10em;
+
+
+    /* background-image: url('/images/fondo-contdown.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; Ajusta la imagen para cubrir todo el espacio */
 }
 
 .card {
