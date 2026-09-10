@@ -1,0 +1,84 @@
+.div-general {
+  background-color: #2f5e37;
+  position: relative;
+  height: 543px;
+  margin-bottom: 0px;
+  display: flex;
+  align-items: center; /* Centra verticalmente las imágenes */
+}
+
+.slider {
+  width: 100vw;
+  height: auto;
+  margin: auto;
+  overflow: hidden;
+}
+
+.slider .slide-track {
+  display: flex;
+  animation: scroll 50s linear infinite;
+  -webkit-animation: scroll 50s linear infinite;
+  /* Actualiza con el nuevo ancho del slide (350px) + margins si aplica */
+  width: calc(350px * 18);
+}
+
+.slider .slide {
+  width: 350px; /* Aumentado de 230px a 350px */
+  margin: 0 15px;
+  transition: transform 0.3s ease-in-out;
+  flex-shrink: 0; /* Evita que las imágenes se colapsen */
+}
+
+.slider .slide:hover {
+  transform: translateY(-16px);
+  filter: brightness(80%);
+}
+
+.slider .slide img {
+  width: 100%;
+  height: 450px; /* Aumentado de 300px a 450px para llenar mejor la franja */
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+@keyframes scroll {
+    0% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+
+    100% {
+        -webkit-transform: translateX(calc(-250px * 9));
+        transform: translateX(calc(-200px * 7));
+    }
+}
+
+
+
+/* MEDIA QUERYS FUNCIONALES A MEJORAR */
+
+@media (min-width: 700px) and (max-width: 999px) {
+    .div-general {
+        height: 550px;
+    }
+
+    .pincelada-title {
+        top: 25px;
+        transform: scale(2.6, 1.4);
+    }
+
+    .div-general p {
+        width: 40%;
+        font-size: 16px;
+    }
+
+    .slider {
+        margin-top: 5%;
+    }
+}
+
+@media (min-width: 1000px) and (max-width: 1300px) {
+    .div-general p {
+        width: 30%;
+    }
+}

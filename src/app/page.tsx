@@ -14,6 +14,7 @@ import { createClient } from '@/lib/supabase/server'
 import RsvpForm from "@/components/invitation/RsvpForm";
 import Reveal from "@/components/ui/Reveal";
 import ClientInvitationWrapper from "@/components/wedding/ClientInvitationWrapper";
+import CarruselSizeWindows from "@/components/ui/CarruselSizeWindow";
 
 export default async function Home() {
 
@@ -36,6 +37,11 @@ export default async function Home() {
         <Reveal>
           <Story />
         </Reveal>
+
+         <Reveal>
+              <CarruselSizeWindows/>
+            </Reveal>
+        
 
         <Reveal>
           <DressCode />

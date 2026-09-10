@@ -41,7 +41,7 @@ export default function EventDetails({
           <div className={styles.timelineDot}>❖</div>
 
           <div className={styles.timeBlock}>
-            <span className={styles.timeTag}>Fin</span>
+            <span className={styles.timeTag}>Fin de fiesta</span>
             <p className={styles.timeValue}>{partyTime}</p>
           </div>
         </div>

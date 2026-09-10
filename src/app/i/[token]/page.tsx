@@ -14,6 +14,7 @@ import Reveal from '@/components/ui/Reveal'
 import { Metadata } from 'next';
 import styles from "@/css/giftregistry.module.css"
 import ClientInvitationWrapper from '@/components/wedding/ClientInvitationWrapper'
+import CarruselSizeWindows from '@/components/ui/CarruselSizeWindow'
 
 interface PageProps {
   params: Promise<{
@@ -34,7 +35,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const description = "Acompáñanos a celebrar este día tan especial. Haz clic para ver los detalles de tu invitación.";
   
   // URL absoluta de la imagen representativa (debe empezar con https://)
-  const imageUrl = "https://invitacion-boda-nine-delta.vercel.app/images/metadatos-prueba.jpg"; 
+  const imageUrl = "https://invitacion-boda-nine-delta.vercel.app/images/127.jpeg"; 
 
   return {
     title: title,
@@ -66,6 +67,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 
 export default async function GuestTokenPage({ params }: PageProps) {
+
+
+
+
   // 1. Obtener el token de la URL
   const { token } = await params;
 
@@ -100,6 +105,11 @@ export default async function GuestTokenPage({ params }: PageProps) {
       <Reveal>
         <Story />
       </Reveal>
+
+       <Reveal>
+      <CarruselSizeWindows/>
+    </Reveal>
+
 
       <Reveal>
         <DressCode />
