@@ -10,7 +10,7 @@ interface StoryProps {
 
 export default function Story({
   storyText = "Parece que fue ayer cuando nos conocimos. Después de recorrer varios caminos juntos, reír, viajar y compartir mil momentos, decidimos dar este gran paso y celebrar el amor rodeados de las personas que más queremos.",
-  imageUrl = "https://i.pinimg.com/736x/49/b9/3e/49b93e4568fb061b06f744c2a8ff3a5b.jpg",
+  imageUrl = "/images/63.jpeg",
 }: StoryProps) {
   return (
     <section className={styles.container}>

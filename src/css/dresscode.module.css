@@ -8,7 +8,7 @@
   padding-top: 28em;
   /* padding: 1.5rem 1rem; */
   padding-top: 0em;
-  margin-top: 5em;
+  /* margin-top: 5em; */
   margin-bottom: 10em;
   display: flex;
   justify-content: center;
@@ -88,10 +88,14 @@
   .container {
     padding: 2rem 1.5rem;
     max-width: none;
+    background-repeat: inherit;
+    background-position: top;
+    background-size: contain;
+
   }
 
   .card {
-    padding: 10.75rem 2rem;
+    padding: 12.75rem 2rem;
     border-radius: 16px;
   }
 
