@@ -1,5 +1,5 @@
 .background{
-  height: 100vh;
+  height: 93vh;
         background-image: url('/images/fondo-gift.png');
   background-position: center;
   background-repeat: no-repeat;
@@ -10,7 +10,7 @@
   width: 100%;
   max-width: 480px;
   margin: 0 auto;
-  padding: 8.5rem 1rem;
+  padding: 12.5rem 1rem;
   display: flex;
   justify-content: center;
   margin-bottom: 9em;

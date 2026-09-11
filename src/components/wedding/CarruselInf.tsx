@@ -27,7 +27,7 @@ export default function CarruselInfinito() {
 
                         <div className={styles["slide"]}>
                             <Image
-                                src="/images/63.jpeg"
+                                src="/images/90.jpeg"
                                 alt="Foto de la boda"
                                 width={400}
                                 height={400}
@@ -37,7 +37,7 @@ export default function CarruselInfinito() {
 
                        <div className={styles["slide"]}>
                             <Image
-                                src="/images/63.jpeg"
+                                src="/images/173.jpeg"
                                 alt="Foto de la boda"
                                 width={400}
                                 height={400}
@@ -47,7 +47,7 @@ export default function CarruselInfinito() {
 
                        <div className={styles["slide"]}>
                             <Image
-                                src="/images/63.jpeg"
+                                src="/images/2.jpeg"
                                 alt="Foto de la boda"
                                 width={400}
                                 height={400}
@@ -57,7 +57,7 @@ export default function CarruselInfinito() {
 
                        <div className={styles["slide"]}>
                             <Image
-                                src="/images/63.jpeg"
+                                src="/images/3.jpeg"
                                 alt="Foto de la boda"
                                 width={400}
                                 height={400}
@@ -67,7 +67,7 @@ export default function CarruselInfinito() {
 
                         <div className={styles["slide"]}>
                             <Image
-                                src="/images/63.jpeg"
+                                src="/images/4.jpeg"
                                 alt="Foto de la boda"
                                 width={400}
                                 height={400}
@@ -77,7 +77,7 @@ export default function CarruselInfinito() {
 
                        <div className={styles["slide"]}>
                             <Image
-                                src="/images/63.jpeg"
+                                src="/images/5.jpeg"
                                 alt="Foto de la boda"
                                 width={400}
                                 height={400}
@@ -87,7 +87,7 @@ export default function CarruselInfinito() {
 
                        <div className={styles["slide"]}>
                             <Image
-                                src="/images/63.jpeg"
+                                src="/images/6.jpeg"
                                 alt="Foto de la boda"
                                 width={400}
                                 height={400}
@@ -97,7 +97,7 @@ export default function CarruselInfinito() {
 
                         <div className={styles["slide"]}>
                             <Image
-                                src="/images/63.jpeg"
+                                src="/images/7.jpeg"
                                 alt="Foto de la boda"
                                 width={400}
                                 height={400}
@@ -105,7 +105,15 @@ export default function CarruselInfinito() {
                             />
                         </div>
 
-
+                        <div className={styles["slide"]}>
+                            <Image
+                                src="/images/8.jpeg"
+                                alt="Foto de la boda"
+                                width={400}
+                                height={400}
+                                quality={90}
+                            />
+                        </div>
 
 
                         {/* REPEAT */}
@@ -121,7 +129,7 @@ export default function CarruselInfinito() {
 
                         <div className={styles["slide"]}>
                             <Image
-                                src="/images/63.jpeg"
+                                src="/images/90.jpeg"
                                 alt="Foto de la boda"
                                 width={400}
                                 height={400}
@@ -131,7 +139,7 @@ export default function CarruselInfinito() {
 
                        <div className={styles["slide"]}>
                             <Image
-                                src="/images/63.jpeg"
+                                src="/images/173.jpeg"
                                 alt="Foto de la boda"
                                 width={400}
                                 height={400}
@@ -141,7 +149,7 @@ export default function CarruselInfinito() {
 
                        <div className={styles["slide"]}>
                             <Image
-                                src="/images/63.jpeg"
+                                src="/images/2.jpeg"
                                 alt="Foto de la boda"
                                 width={400}
                                 height={400}
@@ -151,7 +159,7 @@ export default function CarruselInfinito() {
 
                        <div className={styles["slide"]}>
                             <Image
-                                src="/images/63.jpeg"
+                                src="/images/3.jpeg"
                                 alt="Foto de la boda"
                                 width={400}
                                 height={400}
@@ -161,7 +169,7 @@ export default function CarruselInfinito() {
 
                         <div className={styles["slide"]}>
                             <Image
-                                src="/images/63.jpeg"
+                                src="/images/4.jpeg"
                                 alt="Foto de la boda"
                                 width={400}
                                 height={400}
@@ -171,7 +179,7 @@ export default function CarruselInfinito() {
 
                        <div className={styles["slide"]}>
                             <Image
-                                src="/images/63.jpeg"
+                                src="/images/5.jpeg"
                                 alt="Foto de la boda"
                                 width={400}
                                 height={400}
@@ -181,7 +189,7 @@ export default function CarruselInfinito() {
 
                        <div className={styles["slide"]}>
                             <Image
-                                src="/images/63.jpeg"
+                                src="/images/6.jpeg"
                                 alt="Foto de la boda"
                                 width={400}
                                 height={400}
@@ -191,7 +199,17 @@ export default function CarruselInfinito() {
 
                         <div className={styles["slide"]}>
                             <Image
-                                src="/images/63.jpeg"
+                                src="/images/7.jpeg"
+                                alt="Foto de la boda"
+                                width={400}
+                                height={400}
+                                quality={90}
+                            />
+                        </div>
+
+                        <div className={styles["slide"]}>
+                            <Image
+                                src="/images/8.jpeg"
                                 alt="Foto de la boda"
                                 width={400}
                                 height={400}

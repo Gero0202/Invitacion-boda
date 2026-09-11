@@ -24,8 +24,7 @@ export default async function Home() {
     .from('guests')
     .select('*')
 
-  console.log('DATA:', data)
-  console.log('ERROR:', error)
+  
   return (
     <div>
 

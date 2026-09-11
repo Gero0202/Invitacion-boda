@@ -4,36 +4,51 @@ import React, { useState } from "react";
 import styles from "@/css/giftregistry.module.css";
 
 interface BankAccount {
-  alias: string;
-  cbu: string;
-  holder: string;
+  currency: string;      // ej: "Cuenta en Pesos (ARS)" o "Cuenta en Dólares (USD)"
+  holder: string;        // Titular
+  accountNumber: string; // Número de Cuenta
+  alias: string;         // Alias
+  cbu: string;           // CBU / CBU Dólares
 }
 
 interface GiftRegistryProps {
-  bankAccount?: BankAccount;
+  accounts?: BankAccount[];
   customText?: string;
 }
 
-export default function GiftRegistry({
-  bankAccount = {
-    alias: "boda.adrian.laura",
-    cbu: "0000003100012345678901",
+const defaultAccounts: BankAccount[] = [
+  {
+    currency: "Cuenta en Pesos (ARS)",
     holder: "Laura Pilar Nani",
+    accountNumber: "93-311388/8",
+    alias: "Lauyadri.felicidad",
+    cbu: "0170093040000031138888",
   },
-  customText = "Lo más importante para nosotros es celebrar juntos. Si deseás hacernos un regalo, podés colaborar con un aporte a través de nuestra cuenta.",
-}: GiftRegistryProps) {
-  const [copied, setCopied] = useState(false);
+  {
+    currency: "Cuenta en Dólares (USD)",
+    holder: "Laura Pilar Nani",
+    accountNumber: "110-109642/4",
+    alias: "Lauyadri.amor",
+    cbu: "0170110044000010964242",
+  },
+];
 
-  const handleCopyAlias = () => {
-    if (bankAccount?.alias) {
-      navigator.clipboard.writeText(bankAccount.alias);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2500);
+export default function GiftRegistry({
+  accounts = defaultAccounts,
+  customText = "Lo más importante para nosotros es celebrar juntos. Si deseás hacernos un regalo, podés colaborar con un aporte a través de nuestras cuentas.",
+}: GiftRegistryProps) {
+  // Guardamos cuál alias se copió según su índice
+  const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
+
+  const handleCopyAlias = (alias: string, index: number) => {
+    if (alias) {
+      navigator.clipboard.writeText(alias);
+      setCopiedIndex(index);
+      setTimeout(() => setCopiedIndex(null), 2500);
     }
   };
 
   return (
-   
     <section className={styles.container}>
       <div className={styles.box}>
         <div className={styles.header}>
@@ -43,31 +58,44 @@ export default function GiftRegistry({
 
         <p className={styles.text}>{customText}</p>
 
-        <div className={styles.card}>
-          <div className={styles.row}>
-            <span className={styles.label}>Titular</span>
-            <span className={styles.value}>{bankAccount.holder}</span>
-          </div>
-          
-          <div className={styles.row}>
-            <span className={styles.label}>Alias</span>
-            <span className={styles.aliasValue}>{bankAccount.alias}</span>
-          </div>
+        <div className={styles.cardsContainer}>
+          {accounts.map((acc, index) => (
+            <div key={index} className={styles.card}>
+              <span className={styles.currencyBadge}>{acc.currency}</span>
 
-          <div className={styles.row}>
-            <span className={styles.label}>CBU</span>
-            <span className={styles.value}>{bankAccount.cbu}</span>
-          </div>
+              <div className={styles.row}>
+                <span className={styles.label}>Titular</span>
+                <span className={styles.value}>{acc.holder}</span>
+              </div>
 
-          <button
-            onClick={handleCopyAlias}
-            className={`${styles.copyButton} ${copied ? styles.copied : ""}`}
-          >
-            {copied ? "✓ ¡Alias copiado!" : "Copiar Alias"}
-          </button>
+              <div className={styles.row}>
+                <span className={styles.label}>Nº de Cuenta</span>
+                <span className={styles.value}>{acc.accountNumber}</span>
+              </div>
+
+              <div className={styles.row}>
+                <span className={styles.label}>Alias</span>
+                <span className={styles.aliasValue}>{acc.alias}</span>
+              </div>
+
+              <div className={styles.row}>
+                <span className={styles.label}>CBU</span>
+                <span className={styles.value}>{acc.cbu}</span>
+              </div>
+
+              <button
+                type="button"
+                onClick={() => handleCopyAlias(acc.alias, index)}
+                className={`${styles.copyButton} ${
+                  copiedIndex === index ? styles.copied : ""
+                }`}
+              >
+                {copiedIndex === index ? "✓ ¡Alias copiado!" : "Copiar Alias"}
+              </button>
+            </div>
+          ))}
         </div>
       </div>
     </section>
-    
   );
 }

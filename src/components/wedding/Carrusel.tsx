@@ -17,10 +17,14 @@ const images = [
     "/images/63.jpeg",
     "/images/90.jpeg",
     "/images/173.jpeg",
-    "/images/63.jpeg",
-    "/images/90.jpeg",
-    "/images/173.jpeg",
-    "/images/63.jpeg",
+    "/images/2.jpeg",
+    "/images/3.jpeg",
+    "/images/4.jpeg",
+    "/images/6.jpeg",
+    "/images/7.jpeg",
+    "/images/8.jpeg",
+    "/images/32.jpeg",
+    "/images/5.jpeg",
 ];
 
 
@@ -42,7 +46,7 @@ export default function Carrusel() {
         infinite: true,
         dots: false,
         centerMode: true,
-        centerPadding: "80px",
+        centerPadding: "75px",
         slidesToShow: 1,
         autoplay: true,
         autoplaySpeed: 1500,
