@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const description = "Acompáñanos a celebrar este día tan especial. Haz clic para ver los detalles de tu invitación.";
   
   // URL de la imagen
-  const imageUrl = `${baseUrl}/images/127.jpeg`; 
+  const imageUrl = `${baseUrl}/images/127.jpg`; 
   // URL canónica de la invitación actual
   const shareUrl = `${baseUrl}/i/${token}`;
 
