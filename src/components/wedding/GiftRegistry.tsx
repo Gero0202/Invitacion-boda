@@ -35,7 +35,7 @@ const defaultAccounts: BankAccount[] = [
 
 export default function GiftRegistry({
   accounts = defaultAccounts,
-  customText = "Lo más importante para nosotros es celebrar juntos. Si deseás hacernos un regalo, podés colaborar con un aporte a través de nuestras cuentas.",
+  customText = "Lo más importante para nosotros es celebrar juntos. Si deseás hacernos un regalo, podés colaborar con un aporte a través de nuestras cuentas o mediante la urna que estará disponible el día de la fiesta.",
 }: GiftRegistryProps) {
   // Guardamos cuál alias se copió según su índice
   const [copiedIndex, setCopiedIndex] = useState<number | null>(null);

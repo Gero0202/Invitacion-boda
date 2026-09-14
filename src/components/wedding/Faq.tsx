@@ -12,7 +12,7 @@ const defaultFaqs: FAQItem[] = [
   {
     question: "¿Hasta cuándo tengo tiempo de confirmar asistencia?",
     answer:
-      "Agradecemos que nos confirmes antes del 15 de Octubre para poder definir el menú y los detalles finales del salón.",
+      "Agradecemos que nos confirmes antes del 10 de Octubre para poder definir el menú y los detalles finales del salón.",
   },
   {
     question: "¿Hay estacionamiento en el lugar?",

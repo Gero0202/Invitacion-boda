@@ -111,6 +111,13 @@
   word-break: break-all;
 }
 
+.value a,
+.value[href] {
+  color: inherit !important;
+  text-decoration: none !important;
+  pointer-events: none; /* Inhabilita que se pueda hacer clic como llamada */
+}
+
 .aliasValue {
   font-family: var(--font-serif);
   font-size: 1.2rem;
