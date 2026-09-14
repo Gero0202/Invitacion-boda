@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useTransition } from 'react'
 import { createGuest } from '@/actions/guests'
 import styles from '@/css/guestform.module.css'
 
@@ -10,35 +10,35 @@ interface GuestFormProps {
 
 export default function GuestForm({ onCreated }: GuestFormProps) {
   const [name, setName] = useState('')
-  const [allowedGuests, setAllowedGuests] = useState(1)
-  const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
+  const [isPending, startTransition] = useTransition()
 
-  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
-
     setError('')
-    setLoading(true)
 
-    try {
-      await createGuest(name)
+    if (!name.trim()) return
 
-      setName('')
-      
-
-      onCreated?.()
-    } catch {
-      setError('No se pudo crear la invitacion')
-    } finally {
-      setLoading(false)
-    }
+    startTransition(async () => {
+      try {
+        await createGuest(name)
+        setName('')
+        
+        // Ejecutamos la actualización dentro del mismo bloque de transición
+        if (onCreated) {
+          onCreated()
+        }
+      } catch {
+        setError('No se pudo crear la invitación')
+      }
+    })
   }
 
   return (
     <form onSubmit={handleSubmit} className={styles.formContainer}>
       <div className={styles.fieldGroup}>
         <label htmlFor="name" className={styles.label}>
-          Invitacion para
+          Invitación para
         </label>
 
         <input
@@ -52,15 +52,14 @@ export default function GuestForm({ onCreated }: GuestFormProps) {
         />
       </div>
 
-
       {error && <p className={styles.errorMessage}>{error}</p>}
 
       <button
         type="submit"
-        disabled={loading}
+        disabled={isPending}
         className={styles.submitButton}
       >
-        {loading ? 'Creando...' : 'Crear invitado'}
+        {isPending ? 'Creando...' : 'Crear invitado'}
       </button>
     </form>
   )

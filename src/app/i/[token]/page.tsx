@@ -22,28 +22,28 @@ interface PageProps {
   }>
 }
 
-// 1. Función para generar los metadatos dinámicos por invitación
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { token } = await params;
 
-
-  // Podés obtener los datos del invitado con el token desde tu backend o DB
-  // const guest = await getGuestByToken(token);
-  // const guestName = guest?.name || "invitado";
+  // Dominio base de producción
+  const baseUrl = "https://invitacion-boda-nine-delta.vercel.app";
 
   const title = "¡Estás invitado a nuestra boda! 💍";
   const description = "Acompáñanos a celebrar este día tan especial. Haz clic para ver los detalles de tu invitación.";
   
-  // URL absoluta de la imagen representativa (debe empezar con https://)
-  const imageUrl = "https://invitacion-boda-nine-delta.vercel.app/images/127.jpeg"; 
+  // URL de la imagen
+  const imageUrl = `${baseUrl}/images/127.jpeg`; 
+  // URL canónica de la invitación actual
+  const shareUrl = `${baseUrl}/i/${token}`;
 
   return {
+    metadataBase: new URL(baseUrl),
     title: title,
     description: description,
     openGraph: {
       title: title,
       description: description,
-      url: `https://tu-dominio.com/i/${token}`,
+      url: shareUrl, 
       siteName: "Boda Laura & Adrián",
       images: [
         {
