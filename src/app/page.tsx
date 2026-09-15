@@ -63,14 +63,16 @@ export default async function Home() {
           <Countdown />
         </Reveal>
 
-        <Reveal>
-          <RsvpForm token={""} />
-        </Reveal>
+        
 
         <Reveal>
           <GiftRegistry />
 
 
+        </Reveal>
+
+        <Reveal>
+          <RsvpForm token={""} />
         </Reveal>
 
         <Reveal>

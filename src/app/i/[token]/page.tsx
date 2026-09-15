@@ -132,14 +132,14 @@ export default async function GuestTokenPage({ params }: PageProps) {
         <Countdown />
       </Reveal>
 
-      <Reveal>
-        <RsvpForm token={token} />
-      </Reveal>
+    
 
       <Reveal>
           <GiftRegistry />
+      </Reveal>
 
-       
+        <Reveal>
+        <RsvpForm token={token} />
       </Reveal>
 
       <Reveal>
