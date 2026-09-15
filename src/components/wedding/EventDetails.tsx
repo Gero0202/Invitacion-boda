@@ -11,6 +11,7 @@ interface EventDetailsProps {
 }
 
 export default function EventDetails({
+  eventDate = "1 de Noviembre",
   ceremonyTime = "11:00 Hs",
   partyTime = "21:00 Hs",
   venueName = "Jano's Hipodromo de La Plata",
@@ -24,6 +25,14 @@ export default function EventDetails({
       </div>
 
       <div className={styles.singleCard}>
+        {/* Bloque de Fecha Destacada */}
+        <div className={styles.dateBlock}>
+          <span className={styles.badge}>Fecha</span>
+          <p className={styles.dateValue}>{eventDate}</p>
+        </div>
+
+        <div className={styles.scheduleDivider} aria-hidden="true" />
+
         <div className={styles.venueHeader}>
           <span className={styles.badge}>Lugar</span>
           <h3 className={styles.venueTitle}>{venueName}</h3>
